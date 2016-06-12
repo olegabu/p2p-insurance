@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>Demo</h1>
+    </div><!-- /column -->
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-bars"></i> Menu</div>
+        <div class="panel-body">
+          <ul ng-if="ctl.user.role === 'role0'" class="list-inline">
+            <li>role0 0</li>
+            <li>role0 1</li>
+          </ul>
+          <ul ng-if="ctl.user.role === 'role1'" class="list-inline">
+            <li>role1 0</li>
+            <li>role1 1</li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /column -->
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-user"></i> Logged in User</div>
+        <div class="panel-body">
+          <select class="form-control" ng-model="ctl.user" 
+          ng-options="u.id for u in ctl.users"
+          ng-change="ctl.setUser(u)"></select>
+        </div>
+      </div>
+    </div><!-- /column -->
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><i class="fa fa-clock-o"></i> Current Date</div>
+        <div class="panel-body" ng-click="ctl.tick()" ng-dblclick="ctl.clock()">
+          <h5>{{ctl.now() | date:'longDate'}}</h5>
+        </div>
+      </div>
+    </div><!-- /column -->
+  </div><!-- /row -->
+  <ui-view/>
+</div>
